@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
-import "example.com/bank/fileoperation"
+import (
+	"fmt"
+
+	"example.com/bank/fileoperation"
+	"github.com/Pallinder/go-randomdata"
+)
 
 const accountBalanceFile ="balance.txt"
 
@@ -15,6 +19,7 @@ func main(){
 	panic("Can't continue. Please re-run ")
  }
  fmt.Println("Go Bank")
+ fmt.Println("Reach us for any queries",randomdata.PhoneNumber())
  for i:=0; i <4 ; i++ {
    
  presentOptions()
@@ -56,7 +61,7 @@ case 3:
 	}
 	accountBalance -= withdrawAmount
 	fmt.Println("Total Bal after withdraw:",accountBalance)
-	fileoperation.writeFloatToFile(accountBalance,accountBalanceFile)
+	fileoperation.WriteFloatToFile(accountBalance,accountBalanceFile)
 
 default:
 	fmt.Println("Wrong option! Check again")
